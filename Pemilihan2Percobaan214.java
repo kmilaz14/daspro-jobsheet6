@@ -5,7 +5,7 @@ public class Pemilihan2Percobaan214 {
         Scanner input14 = new Scanner(System.in);
         
         int pilihan_menu;
-        double harga;
+        double harga = 0, total_bayar = 0;
 
         System.out.println("-------------------------");
         System.out.println("===== MENU KAFE JTI =====");
@@ -19,6 +19,8 @@ public class Pemilihan2Percobaan214 {
         input14.nextLine();
         System.out.print("Apakah punya member (y/n)?= ");
         String member = input14.nextLine();
+        System.out.print("Apakah pembayaran menggunakan QRIS?= ");
+        String qris = input14.nextLine();
         System.out.println("--------------------------------------");
 
         if (member.equalsIgnoreCase("y")) {
@@ -58,12 +60,19 @@ public class Pemilihan2Percobaan214 {
                 return;
             }
             
-            System.out.println("Total bayar = " + harga);
+            total_bayar = harga;
+            System.out.println("Total bayar = " + total_bayar);
 
         } else {
             System.out.println("Member tidak valid");
         }
 
+        if (qris.equalsIgnoreCase("y")) {
+            total_bayar -= 1000;
+            System.out.println("Potongan sebesar Rp. 1000");
+        }
+
+        System.out.println("Total bayar akhir = " + total_bayar);
         System.out.println("--------------------------------------");
     }
 }
